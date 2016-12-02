@@ -2,16 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char *argv[]) {
-
-  FILE *fid = fopen("day1_input.txt", "r");
+char *plg_readfile(char *filename) {
+  FILE *fid = fopen(filename, "r");
   fseek(fid, 0, SEEK_END);
   long fsize = ftell(fid);
   fseek(fid, 0, SEEK_SET);
   char *buf = malloc(fsize + 1);
   fread(buf, fsize, 1, fid);
   fclose(fid);
+  return buf;
+}
 
+int main(int argc, char *argv[]) {
+
+  char *buf = plg_readfile("day1_input.txt");
   char *pt;
   char dir;
   int steps;
@@ -26,8 +30,12 @@ int main(int argc, char *argv[]) {
       dir = pt[0];
       steps = atoi(&(pt[1]));
       printf("%d | %4d,%4d | ", facing, X, Y);
-      if (dir=='L') facing = (facing+1 % 4 + 4) % 4;
-      if (dir=='R') facing = (facing-1 % 4 + 4) % 4;
+      // if (dir=='L') facing = (facing+1 % 4 + 4) % 4;
+      // if (dir=='R') facing = (facing-1 % 4 + 4) % 4;
+      if (dir=='L') facing = facing+1;
+      if (dir=='R') facing = facing-1;
+      if (facing<0) facing=facing+4;
+      if (facing>3) facing=facing-4;
       if (facing==0) Y = Y + steps;
       if (facing==1) X = X - steps;
       if (facing==2) Y = Y - steps;
