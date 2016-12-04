@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[]) {
 
-  int PAD[3][3] = {1,2,3,4,5,6,7,8,9};
+  int PAD[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
   
   int row=1; // 
   int col=1; // start at "5" key

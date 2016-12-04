@@ -14,7 +14,6 @@ int main(int argc, char *argv[]) {
 
   FILE *fid = fopen("day4_input.txt","r");
   char c;
-  int n_valid = 0;
   int count[26];
   int ci,cii;
   int c_a = (int)'a';
@@ -36,7 +35,6 @@ int main(int argc, char *argv[]) {
   char roomname_d[64];
   int roomname_i = 0;
   int sid;
-  int charshift;
   while (fscanf(fid,"%c",&c) != EOF) {
     ci = (int)c;
     cii = ci - c_a;
@@ -72,7 +70,6 @@ int main(int argc, char *argv[]) {
       reading_code = 1;      
     }
     else if (c=='\n') {
-      int index[26];
       //      printf("|");
       //     for (int i=0; i<26; i++) printf("%d|",count[i]);
       //      printf("%s|", sectorID);
