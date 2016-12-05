@@ -25,17 +25,21 @@ int main()
   int numfound = 0;
   long int index = 0;
   long int i = 0;
-  char password[9]; password[8]='\0';
+  char password[9];
+  for (int i=0; i<9; i++) password[i]='\0';
+  int position;
   while (numfound < 8) {
     sprintf((char *)&input, "%s%ld", doorID, i);
     MD5((const unsigned char *)input, strlen(input), result);
     for(int j=0; j<MD5_DIGEST_LENGTH; j++) {
       sprintf(&(hexresult[j*2]),"%02x",result[j]);
     }
-    if ((hexresult[0]=='0')&(hexresult[1]=='0')&(hexresult[2]=='0')&(hexresult[3]=='0')&(hexresult[4]=='0')) {
-      printf("%s %s\n", input, hexresult);
+    if ((hexresult[0]=='0')&(hexresult[1]=='0')&(hexresult[2]=='0')&(hexresult[3]=='0')&(hexresult[4]=='0') & (((int)hexresult[5])>=((int)'0')) & (((int)hexresult[5])<=((int)'7')) & (password[(int)hexresult[5] - (int)'0'] == '\0')) {
+      printf("%s %s| ", input, hexresult);
       numfound = numfound + 1;
-      password[numfound-1] = hexresult[5];
+      position = (int)hexresult[5] - (int)'0';
+      password[position] = hexresult[6];
+      printf("%c %d : %c\n", hexresult[5], position, hexresult[6]);
     }
     i = i + 1;
   }

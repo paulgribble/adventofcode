@@ -65,3 +65,7 @@ animation.
 
 Your puzzle input is still cxdnnyjw.
 
+Your puzzle answer was 999828ec.
+
+Both parts of this puzzle are complete! They provide two gold stars: **
+
