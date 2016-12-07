@@ -57,3 +57,8 @@ For example:
   has a corresponding bzb, even though zaz and zbz overlap).
 
 How many IPs in your puzzle input support SSL?
+
+Your puzzle answer was 260.
+
+Both parts of this puzzle are complete! They provide two gold stars: **
+
