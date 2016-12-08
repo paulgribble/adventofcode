@@ -2,12 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-int show_screen(int screen[50][6]) {
+#define ROWS 6
+#define COLS 50
+
+int show_screen(int screen[COLS][ROWS]) {
   int lit_pixels = 0;
-  printf("\n+--------------------------------------------------+\n");
-  for (int j=0; j<6; j++) {
+  printf("\n+");
+  for (int i=0; i<COLS; i++) {
+    printf("-");
+  }
+  printf("+\n");
+  for (int j=0; j<ROWS; j++) {
     printf("|");
-    for (int i=0; i<50; i++) {
+    for (int i=0; i<COLS; i++) {
       if (screen[i][j]==1) {
 	printf("#");
 	lit_pixels = lit_pixels + 1;
@@ -18,9 +25,14 @@ int show_screen(int screen[50][6]) {
     }
     printf("|\n");
   }
-  printf("+--------------------------------------------------+\n\n");
+  printf("+");
+  for (int i=0; i<COLS; i++) {
+    printf("-");
+  }
+  printf("+\n\n");
   return lit_pixels;
 }
+
 
 int main()
 {
@@ -37,11 +49,15 @@ int main()
   int rect_arg_x;
   char *x;
   int rotate_arg_i, rotate_arg_n;
-  
-  int screen[50][6];
-  memset(screen, 0, sizeof(int)*50*6);
-  
+  int col[ROWS];
+  int row[COLS];    
+  int screen[COLS][ROWS];
+  memset(screen, 0, sizeof(int)*ROWS*COLS);
+
+  int nlines = 0;
+  show_screen(screen);
   while (fscanf(fid,"%s",(char *)&cmd) != EOF) {
+    printf("-----\n");
     if (strcmp(cmd,"rect")==0) {
       printf("%s ", cmd);
       fscanf(fid,"%s",(char *)&rect_arg);
@@ -49,9 +65,9 @@ int main()
       x = strchr(rect_arg,'x');
       rect_arg_x = (int)(x-rect_arg);
       rect_arg[rect_arg_x]='\0';
-      rect_rows = atoi(rect_arg);
-      rect_cols = atoi(&(rect_arg[rect_arg_x+1]));
-      printf("%dx%d\n",rect_rows,rect_cols);
+      rect_cols = atoi(rect_arg);
+      rect_rows = atoi(&(rect_arg[rect_arg_x+1]));
+      printf("%dx%d\n",rect_cols,rect_rows);
       for (int i=0; i<rect_cols; i++) {
 	for (int j=0; j<rect_rows; j++) {
 	  screen[i][j] = 1;
@@ -72,11 +88,26 @@ int main()
       rect_arg_x = (int)(x-rotate_arg2);
       rotate_arg_i = atoi(&(rotate_arg2[rect_arg_x+1]));
       rotate_arg_n = atoi(rotate_arg4);
+      
       if (strcmp(rotate_arg1,"column")==0) {
-	
+	memset(col,0,sizeof(int)*ROWS);
+	for (int i=0; i<rotate_arg_n; i++) {
+	  col[0] = screen[rotate_arg_i][ROWS-1];
+	  for (int j=0; j<(ROWS-1); j++) {
+	    col[j+1] = screen[rotate_arg_i][j];
+	  }
+	  for (int i=0; i<ROWS; i++) screen[rotate_arg_i][i]=col[i];
+	}
       }
       else if (strcmp(rotate_arg1,"row")==0) {
-	
+	memset(row,0,sizeof(int)*COLS);
+	for (int i=0; i<rotate_arg_n; i++) {
+	  row[0] = screen[COLS-1][rotate_arg_i];
+	  for (int j=0; j<(COLS-1); j++) {
+	    row[j+1] = screen[j][rotate_arg_i];
+	  }
+	  for (int i=0; i<COLS; i++) screen[i][rotate_arg_i]=row[i];
+	}
       }
     }
   }
