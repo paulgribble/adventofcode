@@ -36,6 +36,7 @@ int main()
   int rect_arg_len;
   int rect_arg_x;
   char *x;
+  int rotate_arg_i, rotate_arg_n;
   
   int screen[50][6];
   memset(screen, 0, sizeof(int)*50*6);
@@ -51,6 +52,11 @@ int main()
       rect_rows = atoi(rect_arg);
       rect_cols = atoi(&(rect_arg[rect_arg_x+1]));
       printf("%dx%d\n",rect_rows,rect_cols);
+      for (int i=0; i<rect_cols; i++) {
+	for (int j=0; j<rect_rows; j++) {
+	  screen[i][j] = 1;
+	}
+      }
     }
     else if (strcmp(cmd,"rotate")==0) {
       printf("%s ", cmd);
@@ -62,7 +68,16 @@ int main()
       printf("%s ",rotate_arg3);
       fscanf(fid,"%s",(char *)&rotate_arg4);
       printf("%s\n",rotate_arg4);
-      
+      x = strchr(rotate_arg2,'=');
+      rect_arg_x = (int)(x-rotate_arg2);
+      rotate_arg_i = atoi(&(rotate_arg2[rect_arg_x+1]));
+      rotate_arg_n = atoi(rotate_arg4);
+      if (strcmp(rotate_arg1,"column")==0) {
+	
+      }
+      else if (strcmp(rotate_arg1,"row")==0) {
+	
+      }
     }
   }
 
