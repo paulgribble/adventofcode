@@ -6,10 +6,12 @@ int main()
 {
 
   FILE *fid = fopen("day9_input.txt", "r");
-
+  FILE *fnew = fopen("day9_output.txt", "w");
+  
   char *buf = malloc(16384*sizeof(char));
-  char *c, *c1, *c2, *ctmp;
-  int ci1, ci2, clen;
+  
+  char *c, *c1, *c2, *ctmp, *m;
+  int ci1, ci2, clen, m1, m2;
   
   fscanf(fid,"%s\n",buf);
 
@@ -23,16 +25,21 @@ int main()
       ctmp[i] = c1[i];
     }
     ctmp[clen] = '\0';
-    printf("%s\n", ctmp);
+    printf("%s ", ctmp);
+
+    m = strchr(ctmp,'x');
+    ctmp[(int)(m-ctmp)] = '\0';
+    m1 = atoi(&(ctmp[1]));
+    m2 = atoi(&(ctmp[(int)(m-ctmp)+1]));
+    printf("%d %d\n",m1,m2);
+
     free(ctmp);
-    
     c = c1+sizeof(char);
     
   }
-
-  printf("\n");
   
   free(buf);
+  fclose(fnew);
   fclose(fid);
 
   return 0;
