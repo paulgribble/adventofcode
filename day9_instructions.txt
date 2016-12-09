@@ -57,7 +57,8 @@ many-gigabyte files to be stored in only a few kilobytes.
 
 For example:
 
-(3x3)XYZ still becomes XYZXYZXYZ, as the decompressed section contains no markers.
+(3x3)XYZ still becomes XYZXYZXYZ, as the decompressed section contains
+no markers.
 
 - X(8x2)(3x3)ABCY becomes XABCABCABCABCABCABCY, because the
   decompressed data from the (8x2) marker is then further
