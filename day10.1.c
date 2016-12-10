@@ -38,7 +38,6 @@ int main(int argc, char *argv[]) {
 	fscanf(fid,"%d",&blo);
 	// give bots[b1] lo to bots[blo]
 	// (need to write code to do it here)
-
 	printf("bot %d gives low to bot %d",b1,blo);
 	bots[b1][0] = -1;
 	fscanf(fid,"%s%s%s",dummy,dummy,dummy); // and high to
@@ -49,7 +48,6 @@ int main(int argc, char *argv[]) {
 	  // give bots[b1] hi to bots[bhi]
 	  // (need to write code to do it here)
 	  printf(" and high to bot %d\n",bhi);
-
 	  bots[b1][1] = -1;
 	}
       }
@@ -60,7 +58,6 @@ int main(int argc, char *argv[]) {
       fscanf(fid,"%d",&b1);
       // give bots[b1] value val
       // (need to write code to do it here)
-
       printf("value %d goes to bot %d\n",val,b1);
     }    
   }
