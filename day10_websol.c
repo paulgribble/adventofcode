@@ -2,22 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MIN(x, y) ({				\
-      typeof(x) _min1 = (x);			\
-      typeof(y) _min2 = (y);			\
-      (void) (&_min1 == &_min2);		\
-      _min1 < _min2 ? _min1 : _min2; })
-
-#define MAX(x, y) ({				\
-      typeof(x) _max1 = (x);			\
-      typeof(y) _max2 = (y);			\
-      (void) (&_max1 == &_max2);		\
-      _max1 > _max2 ? _max1 : _max2; })
+#define MIN(x, y) x < y ? x : y;
+#define MAX(x, y) x > y ? x : y;
 
 struct bot { int vals[2]; int *low_to; int *high_to; } bots[10000];
 int outputs[10000];
 
-#define give(p, v) do { if ((p)[0] == 0) (p)[0] = (v); else (p)[1] = (v); } while (0)
+#define give(p, v) if ((p)[0] == 0) (p)[0] = (v); else (p)[1] = (v);
 
 int main(int argc, char **argv)
 {

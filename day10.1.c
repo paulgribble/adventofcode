@@ -2,28 +2,37 @@
 #include <stdlib.h>
 #include <string.h>
 
-int bots[210][2];
-
-void showbots() {
-  printf("-------------------\n");  
-  for (int i=0; i<210; i++) {
-    printf("bot %4d: %4d %4d\n",i,bots[i][0],bots[i][1]);
-  }
-  printf("-------------------\n");  
-}
-
 int main(int argc, char *argv[]) {
 
-  for (int i=0; i<210; i++) for (int j=0; j<2; j++) bots[i][j] = -1;
+  char buf[256];
+  int r, value, botno, low, high;
 
-  
   FILE *fid = fopen("day10_input.txt","r");
-  
+
+  while (fgets(buf, 256, fid) != NULL) {
+    if ((r=sscanf(buf, "value %d goes to bot %d", &value, &botno)) != 0) {
+      printf("value %d goes to bot %d\n", value, botno);
+    }
+    else if ((r=sscanf(buf, "bot %d gives low to bot %d and high to bot %d", \
+		       &botno, &low, &high)) == 3) {
+      printf("bot %d gives low to bot %d and high to bot %d\n", \
+	     botno, low, high);
+    }
+    else if ((r=sscanf(buf, "bot %d gives low to output %d "
+		       "and high to bot %d", &botno, &low, &high)) == 3) {
+      printf("bot %d gives low to output %d and high to bot %d\n", \
+	     botno, low, high);
+    }
+    else if ((r=sscanf(buf, "bot %d gives low to output %d "
+		       "and high to output %d", &botno, &low, &high)) == 3) {
+      printf("bot %d gives low to output %d and high to output %d\n", \
+	     botno, low, high);
+    }
+  }
+
+
   fclose(fid);
-
-  
-  showbots();
-  
   return 0;
-
+  
 }
+
