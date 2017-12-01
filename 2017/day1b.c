@@ -17,8 +17,14 @@ int main(int argc, char *argv[]) {
 
 	char *buf = plg_readfile("day1_input.txt");
 	int buflen = strlen(buf);
-	
-	
+	int n = buflen/2;
+	int sum = 0;
+	for (int i=0; i<n; i++) {
+		if (buf[i]==buf[i+n]) {
+			sum = sum + 2*(buf[i]-'0');
+		}
+	}
+	printf("sum=%d\n", sum);
 	free(buf);
 	return 0;
 }
