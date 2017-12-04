@@ -32,3 +32,11 @@ end
 
 %% part 2
 
+% part 2 the sequence is listed on OEIS. https://oeis.org/A141481
+
+% here is a nice solution in C: https://github.com/vesche/adventofcode-2017/blob/master/day03.c
+
+
+
+
+
