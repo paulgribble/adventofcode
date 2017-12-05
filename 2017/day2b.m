@@ -18,3 +18,6 @@ for i=1:r
     end
     checksum = checksum + (S(i,i1) / S(i,i2));
 end
+
+disp(sprintf('checksum = %d', checksum))
+

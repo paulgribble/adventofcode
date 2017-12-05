@@ -8,6 +8,6 @@ for l in lines:
 	ss = set(s)	# builds an unordered collection of UNIQUE elements
 	if len(s)==len(ss):
 		count = count + 1
-print(count)
+print('number of valid passphrases is', count)
 
 

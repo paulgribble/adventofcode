@@ -16,4 +16,5 @@ for l in lines:
 		count = count + 1
 print(count)
 
+print('number of valid passphrases is', count)
 

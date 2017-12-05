@@ -32,6 +32,8 @@ In this example, the exit is reached in 5 steps.
 
 How many steps does it take to reach the exit?
 
+5
+
 --- Part Two ---
 
 Now, the jumps are even stranger: after each jump, if the offset was three or more, instead decrease it by 1. Otherwise, increase it by 1 as before.
@@ -40,3 +42,4 @@ Using this rule with the above example, the process now takes 10 steps, and the 
 
 How many steps does it now take to reach the exit?
 
+25347697
