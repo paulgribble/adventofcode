@@ -76,7 +76,36 @@ int main(int argc, char *argv[]) {
 		steps = steps + 1;
 	}
 
-	printf("steps=%d\n", steps);
+	printf("steps=%d for first repeat.\n", steps);
+
+	for (int i=0; i<16; i++) {
+		Blist[0][i] = Blist[Bn-1][i];
+	}
+	Bn = 1;
+
+	done = 0;
+	steps = 0;
+	while (!done) {
+//		printBlist(Blist, Bn);
+		imax = max(Blist[Bn-1]);
+		nblocks = Blist[Bn-1][imax];
+		Bn = Bn + 1;
+		Blist[Bn-1] = malloc(16*sizeof(int));
+		for (int i=0; i<16; i++) {
+			Blist[Bn-1][i] = Blist[Bn-2][i];
+		}
+		for (int i=0; i<=nblocks; i++) {
+			ib = (imax+i) % 16;
+			Blist[Bn-1][ib] = Blist[Bn-1][ib] + 1;
+			Blist[Bn-1][imax] = Blist[Bn-1][imax] - 1;
+		}
+		if (found(Blist, Bn)) {
+			done = 1;
+		}
+		steps = steps + 1;
+	}
+
+	printf("steps=%d for second repeat.\n", steps);
 
 	for (int i=0; i<Bn; i++) {
 		free(Blist[i]);
