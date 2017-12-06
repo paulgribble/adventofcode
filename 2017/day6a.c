@@ -41,7 +41,7 @@ void printBlist(int **Blist, int Bn) {
 
 int main(int argc, char *argv[]) {
 
-	int **Blist = malloc(10000*sizeof(int *));
+	int **Blist = malloc(100000*sizeof(int *)); // a guess at how big we need
 	Blist[0] = malloc(16*sizeof(int));
 	int Bn=1;
 
