@@ -1,7 +1,7 @@
 %% part 1
 
-%L = load('day5_input.txt');
-L = [0 3 0 1 -3];
+L = load('day5_input.txt');
+%L = [0 3 0 1 -3];
 
 i = 1;
 Ln = length(L);
