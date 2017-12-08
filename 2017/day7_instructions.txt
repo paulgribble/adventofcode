@@ -66,5 +66,6 @@ As you can see, tknk's disc is unbalanced: ugml's stack is heavier than the othe
 
 Given that exactly one program is the wrong weight, what would its weight need to be to balance the entire tower?
 
+757
 
 
