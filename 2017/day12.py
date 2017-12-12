@@ -41,10 +41,10 @@ print('part 1: {} programs are in the group that contains 0'.format(g0len))
 searchme = set(pipes.keys()) # a set of the keys
 numgroups = 0
 while (len(searchme)>0):
-	s = searchme.pop() # simultaneously get the next one to search and remove it from the set
-	g = getgroup(s)    # get all programs in that group
-	numgroups += 1     # increment the numgroups counter
-	searchme -= g      # delete programs in the latest found group, from the searchme list
+	s = searchme.pop()            # simultaneously get the next one to search and remove it from the set
+	g = getgroup(s)               # get all programs in that group
+	numgroups = numgroups + 1     # increment the numgroups counter
+	searchme = searchme - g       # delete programs in the latest found group, from the searchme list
 
 print('part 2: there are {} groups in total'.format(numgroups))
 
