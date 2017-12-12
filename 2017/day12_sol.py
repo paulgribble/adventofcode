@@ -14,6 +14,7 @@ def find_group(seed):
         new = next_new - group
         group.update(next_new)
     return group
+
 print('Part 1:', len(find_group(0)))
 
 remaining = set(pipes)
