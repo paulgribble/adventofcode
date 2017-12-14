@@ -34,9 +34,10 @@ Llist = list(range(listlen))
 
 Llens = [l.strip('\n') for l in open("day10_input.txt")]
 Llens = Llens[0]
-Bytes = []
 
 #Llens = ''
+
+Bytes = []
 for c in Llens:
 	Bytes.append(ord(c))
 for a in [17, 31, 73, 47, 23]:
@@ -66,7 +67,7 @@ for i in range(16):
 
 H2 = ''
 for h in H:
-	tmp = hex(h).strip('0x')
+	tmp = hex(h)[2:]
 	if (len(tmp) < 2):
 		tmp = '0' + tmp
 	H2 = H2 + tmp
