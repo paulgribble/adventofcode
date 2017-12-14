@@ -40,24 +40,35 @@ def knothash(string_in):
 	return H2
 
 
+# Part 1
+
 p = 'uugsqrei'
 #p = 'flqrgnkx'
 
-G = ['']*128
+G = [[0]*128]*128
 for i in range(128):
 	pp = p + '-' + str(i)
 	b = ''
 	h = knothash(pp)
 	for hc in h:
 		b = b + bin(int(hc,16))[2:].zfill(4)
-	G[i] = b
+	G[i] = [int(bi) for bi in b]
 
 used = 0
 for i in range(128):
 	for j in range(128):
-		used += (G[i][j] == '1')
+		used += G[i][j]
 
-print('{} squares are used'.format(used))
+print('part 1: {} squares are used'.format(used))
+
+
+# Part 2
+
+from scipy.ndimage.measurements import label
+
+items, numitems = label(G)
+
+print('part 2: there are {} regions'.format(numitems))
 
 
 
