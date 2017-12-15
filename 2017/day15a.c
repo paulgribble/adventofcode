@@ -6,6 +6,7 @@ int main(int argc, char *argv[]) {
 
 
 	long int mask = (1 << 16) - 1; // create bit mask for lowest 16 bits of a long int
+//	long int mask = pow(2,16)-1;
 	// if ((a & mask) == (b & mask)) // compare lowest 16 bits of a and b
 
 	long int a = 516;
