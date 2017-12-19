@@ -24,7 +24,7 @@ while (done==False):
 		done = True
 	else:
 		if (tile=='+'):
-			if (heading in ('S', 'N')):
+			if ((heading=='N') | (heading=='S')):
 				if (grid[y][x-1] != ' '):
 					heading = 'W'
 				else:
@@ -34,9 +34,8 @@ while (done==False):
 					heading = 'N'
 				else:
 					heading = 'S'
-
-		elif (tile not in ('|', '-')):
-			letters.append(tile)
+		elif (tile in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+			letters += tile
 
 print('part 1: we will see the letters {}'.format(''.join(letters)))
 print('part 2: we will take {} steps'.format(steps))
