@@ -21,7 +21,7 @@ for i in range(n):
 	pos += vel
 	p0 = sum(abs(pos.T)).argmin()
 
-#print('part 1: after {} ticks particle {} is closest to zero'.format(i,p0))
+print('part 1: after {} ticks particle {} is closest to zero'.format(i,p0))
 
 # Part 2
 
@@ -49,7 +49,7 @@ for _ in range(n):
 		pdict[k].append(i)
 	for k, v in pdict.items():
 		if len(v) > 1:
-			print('{} has {} reps'.format(k,len(v)))
+#			print('{} has {} reps'.format(k,len(v)))
 #			print('deleting {}'.format(len(v)))
 			for i in v:
 				del pos[i]
@@ -58,7 +58,6 @@ for _ in range(n):
 
 print('part 2: {} particles are left after all collisions are resolved'.format(len(pos)))
 
-# 571
 
 
 
