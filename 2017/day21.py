@@ -27,16 +27,13 @@ for l in LINES:
         replacements[flip.tobytes()] = repl
         src, flip = np.rot90(src), np.rot90(flip)
 
-
 pat = np.array([
     [False, True, False],
     [False, False, True],
-    [True, True, True],
-])
+    [True, True, True]])
 
 size = 3
 
-# or 5 for part 1
 for k in range(18):
     if size % 2 == 0:
         newsize = size // 2 * 3
