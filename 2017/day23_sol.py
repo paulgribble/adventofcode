@@ -34,11 +34,11 @@ while 0 <= i1 < len(cmds):
             regs[ord(cmd[1]) - 97] *= getval(cmd[2])
             m += 1
         i1 += 1
-print(m)
+print('part 1: mul is invoked {} times'.format(m))
 h = 0
 for x in range(bb,cc + 1,17):
     for i in range(2,x):
         if x % i == 0:
             h += 1
             break
-print(h)
+print('part 2: the value of register h is {}'.format(h))
