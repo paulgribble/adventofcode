@@ -1,6 +1,8 @@
 # from ghlmtz
-# ain't nobody got time for that
-# had to change bb and cc to match my values of register b and c
+# (ain't nobody got time for that)
+# When I can't figure it out I look at a solution and
+# I try to understand how it works, at least. Then I go on.
+# I had to change bb and cc to match my values of register b and c
 
 bb = 108100
 cc = 125100
