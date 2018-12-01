@@ -15,3 +15,4 @@ while ((freq in freqs_found)==False):
 	freq = freq + fi[i]
 	i = (i + 1) % n
 print('Day 1 Part 2: {:d} is the first freq to repeat'.format(freq))
+
