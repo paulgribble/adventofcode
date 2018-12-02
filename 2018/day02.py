@@ -16,21 +16,18 @@ print("Day 2 Part 1: checksum is {:d}".format(twice*thrice))
 
 boxes = [line.strip('\n') for line in open("day02_input.txt")]
 n = len(boxes)
-enough = False
-i,j = -1,0
-while (not enough):
-	i = i + 1
+for i in range(0,n):
 	for j in range(1,n):
 		A = [0] * 26
 		for k in range(26):
 			A[k] = boxes[i][k] == boxes[j][k]
-		if sum(A) == 25:
-			enough = True
+		if (sum(A) == 25):
 			break
-common = ''
-for c in range(26):
-	if (A[c]==True):
-		common += boxes[i][c]
+	if (sum(A) == 25):
+		break
+x = A.index(False)
+common = boxes[i][:x] + boxes[i][(x+1):]
 print("Day 2 Part 2: common letters are {:s}".format(common))
+
 
 
