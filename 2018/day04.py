@@ -40,6 +40,7 @@ for k in G.keys():
 		sleepy_minute = np.argmax(G[k])
 		sleepy_guard = k
 
+print("Day 4 Part 2: ID of guard x minute = {:d}".format(sleepy_guard * sleepy_minute))
 
 	
 
