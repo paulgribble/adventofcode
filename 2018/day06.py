@@ -5,7 +5,7 @@
 import numpy as np
 
 points = np.loadtxt("day06_input.txt", delimiter=',')
-#points = np.loadtxt("day06_input.txt", delimiter=',')
+#points = np.loadtxt("day06_test_input.txt", delimiter=',')
 n = np.shape(points)[0]
 
 max_x = np.max(points[:,0])
