@@ -43,12 +43,9 @@ print("Day 6 Part 1: the size of the largest area that isn't infinite is {:d}".f
 # Part Two
 
 region = 0
-grid2 = np.copy(grid)
 for c in range(n_c):
 	for r in range(n_r):
-#		if (grid[r,c] > -1): # safe points only
 		d = np.sum(abs(points - np.array([r,c])))
-		grid2[r,c] = d
 		if (d < 10000):
 			region = region + 1
 
