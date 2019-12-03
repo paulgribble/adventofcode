@@ -4,7 +4,6 @@ with open('day03_input.txt') as f:
     wire1 = f.readline().split(',')
     wire2 = f.readline().split(',')
 
-
 def manhattan(point):
     return sum(map(abs, point))
 
@@ -31,7 +30,7 @@ def path(steps):
 wire1_path = path(wire1)
 wire2_path = path(wire2)
 
-intersections = set(wire1_path) & set(wire2_path)
+intersections = set(wire1_path.keys()) & set(wire2_path.keys())
 
 distances = {
     manhattan(point): wire1_path[point] + wire2_path[point]
