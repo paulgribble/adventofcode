@@ -1,6 +1,7 @@
 
 orbits = {}
-f = open('day06_input.txt')
+f = open('day06_input_test.txt')
+#f = open('day06_input.txt')
 for l in f:
 	o = l.strip('\n').split(')')
 	orbits[o[1]] = o[0]
