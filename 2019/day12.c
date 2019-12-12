@@ -70,6 +70,25 @@ int stateIsEqual(planet *A, planet *B) {
 		   (A->xd==B->xd) & (A->yd==B->yd) & (A->zd==B->zd));
 }
 
+long int gcd(long int a, long int b) 
+{
+  if (b == 0) {
+  	return a;
+  }
+  else {
+    return gcd(b, a % b);
+  }
+}
+
+long int lcm(long int a, long int b) {
+	if ((a==0) || (b==0)) {
+		return(0);
+	}
+	else {
+		return((a*b)/gcd(a,b));
+	}
+}
+
 int main(int argc, char *argv[]) {
 
 	planet *I = newPlanet( -3,  10, -1);
@@ -83,9 +102,9 @@ int main(int argc, char *argv[]) {
 
 	// debug(I); debug(E); debug(G); debug(C);
 	long int i=0;
-	int done = 0;
+	long int matchX = 0; int matchY = 0; int matchZ = 0;
+	long int done = matchX && matchY && matchZ;
 	while (done==0) {
-		if ((i%100000000)==0) printf("%ld\n", i);
 		applyGravity(I,E);
 		applyGravity(I,G);
 		applyGravity(I,C);
@@ -106,12 +125,44 @@ int main(int argc, char *argv[]) {
 			int total_energy = I->tot + E->tot + G->tot + C->tot;
 			printf("Part 1: answer is %d\n", total_energy);
 		}
-		if (stateIsEqual(I,I0) & stateIsEqual(E,E0) & stateIsEqual(G,G0) & stateIsEqual(C,C0)) {
-			done = 1;
-			printf("Part 2: answer is %ld\n", i);
+		if ((I->x == I0->x) && (I->xd == I0->xd) &&
+			(E->x == E0->x) && (E->xd == E0->xd) && 
+			(G->x == G0->x) && (G->xd == G0->xd) && 
+			(C->x == C0->x) && (C->xd == C0->xd)) {
+			if (matchX==0) {
+				printf("matchX: i=%ld\n", i);
+				matchX = i+1;
+			}
 		}
-		i += 1;
+		if ((I->y == I0->y) && (I->yd == I0->yd) &&
+			(E->y == E0->y) && (E->yd == E0->yd) && 
+			(G->y == G0->y) && (G->yd == G0->yd) && 
+			(C->y == C0->y) && (C->yd == C0->yd)) {
+			if (matchY==0) {
+				printf("matchY: i=%ld\n", i);
+				matchY = i+1;
+			}
+		}
+		if ((I->z == I0->z) && (I->zd == I0->zd) &&
+			(E->z == E0->z) && (E->zd == E0->zd) && 
+			(G->z == G0->z) && (G->zd == G0->zd) && 
+			(C->z == C0->z) && (C->zd == C0->zd)) {
+			if (matchZ==0) {
+				printf("matchZ: i=%ld\n", i);
+				matchZ = i+1;
+			}
+		}
+		if (matchX && matchY && matchZ) {
+			done = 1;
+		}
+		else {
+			i += 1;
+		}
 	}
+
+	long int tmp = (matchX*matchY)/gcd(matchX,matchY);
+	long int lcm = (tmp*matchZ)/gcd(tmp,matchZ);
+	printf("Part 2: answer is %ld\n", lcm);
 
 	free(I); free(E); free(G); free(C);
 	free(I0); free(E0); free(G0); free(C0);
