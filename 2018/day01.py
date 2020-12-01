@@ -1,7 +1,7 @@
 # Advent of Code 2018 Day 1
 
 # Part 1
-freq = sum([int(line.strip('\n')) for line in open("day01_input.txt")])
+freq = sum([int(line.strip('\n')) for line in open("day01_input.m")])
 print('Day 1 Part 1: the frequency is {:d}'.format(freq))
 
 # Part 2
