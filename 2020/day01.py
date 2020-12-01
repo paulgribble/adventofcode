@@ -5,9 +5,9 @@ n = len(E)
 done = False
 
 i = 0
-while ((~ done) & (i<n)):
+while ((not done) and (i<n)):
 	j = 0
-	while ((~ done) & (j<n)):
+	while (not done and j<n):
 		if ((E[i]+E[j])==2020):
 			print("Part 1: {:d}*{:d} = {:d}".format(E[i],E[j],E[i]*E[j]))
 			done = True
@@ -16,11 +16,11 @@ while ((~ done) & (i<n)):
 
 done = False
 i = 0
-while ((~ done) & (i<n)):
+while (not done and i<n):
 	j = 0
-	while ((~ done) & (j<n)):
+	while (not done and j<n):
 		k = 0
-		while ((~done) & (k<n)):
+		while (not done and k<n):
 			if ((E[i]+E[j]+E[k])==2020):
 				print("Part 2: {:d}*{:d}*{:d} = {:d}".format(E[i],E[j],E[k],E[i]*E[j]*E[k]))
 				done = True
