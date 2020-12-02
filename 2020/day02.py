@@ -11,7 +11,7 @@ for i in range(n):
 	pw = c
 	if pw.count(ch)>=lo and pw.count(ch)<=hi:
 		valid1 += 1
-	if bool(pw[lo-1]==ch) ^ bool(pw[hi-1]==ch): # XOR
+	if (pw[lo-1]==ch) ^ (pw[hi-1]==ch): # XOR
 		valid2 += 1
 
 print("Part 1: {}".format(valid1))
