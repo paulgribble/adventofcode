@@ -5,7 +5,7 @@ def num_trees(right, down, grid):
 	trees = 0
 	r,c = 0,0
 	rows, cols = len(grid), len(grid[0])
-	while r < len(grid):
+	while r < rows:
 		if grid[r%rows][c%cols] == '#':
 			trees += 1
 		r += down
