@@ -2,8 +2,7 @@ with open("day03_input.txt") as f:
 	grid= [line.strip('\n') for line in f]
 
 def num_trees(right, down, grid):
-	trees = 0
-	r,c = 0,0
+	trees,r,c = 0,0,0
 	rows, cols = len(grid), len(grid[0])
 	while r < rows:
 		if grid[r%rows][c%cols] == '#':
