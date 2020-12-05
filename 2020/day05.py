@@ -1,19 +1,19 @@
 
 bplist = []
 
-idmax = 0
 with open("day05_input.txt") as f:
 	for line in f:
 		b = line.strip('\n')
-		bb = b.replace('F','0').replace('B','1').replace('L','0').replace('R','1')
-		seatid = int(bb,2) # the code is binary
+		b = b.replace('F','0')
+		b = b.replace('B','1')
+		b = b.replace('L','0')
+		b = b.replace('R','1')
+		seatid = int(b,2) # the code is binary
 		bplist.append(seatid)
-		if seatid>idmax:
-			idmax = seatid
-
-print("Part 1: {}".format(idmax))
 
 bplist = sorted(bplist)
+
+print("Part 1: {}".format(bplist[-1]))
 
 i = 1
 found = False
