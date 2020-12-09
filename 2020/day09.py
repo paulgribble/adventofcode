@@ -26,4 +26,28 @@ while valid:
 
 print("Part 1: {}".format(code[i]))
 
+tgt = code[i]
+n = len(code)
+found = False
+n1 = 0
+nmin,nmax = 0,0
+while (not found) and (n1<n):
+	n2 = n1+1
+	nsum = code[n1]
+	while (not found) and (n2<n):
+		nsum += code[n2]
+#		print("{},{},{},{}".format(code[n1],code[n2],nsum,tgt))
+		if (nsum==tgt):
+			found = True
+		else:
+			n2 += 1
+	if not found:
+		n1 += 1
 
+nmin,nmax = code[n1],code[n1]
+for i in range(n2-n1+1):
+#	print("{},{},{}".format(code[i+n1],nmin,nmax))
+	nmin = code[i+n1] if code[i+n1]<nmin else nmin
+	nmax = code[i+n1] if code[i+n1]>nmax else nmax
+
+print("Part 2: {}".format(nmin+nmax))
