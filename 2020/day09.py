@@ -47,7 +47,6 @@ while (not found) and (n1<n):
 nmin,nmax = code[n1],code[n1]
 for i in range(n2-n1+1):
 #	print("{},{},{}".format(code[i+n1],nmin,nmax))
-	nmin = code[i+n1] if code[i+n1]<nmin else nmin
-	nmax = code[i+n1] if code[i+n1]>nmax else nmax
+	nmin, nmax = min(code[i+n1],nmin), max(code[i+n1],nmax)
 
 print("Part 2: {}".format(nmin+nmax))
