@@ -30,10 +30,10 @@ W = {}
 def ways(i,AA,W):
 	if i in W.keys():
 		return W[i]
-	if i==AA[-1]:
+	elif i==AA[-1]:
 		W[i] = 1
 		return 1
-	if i not in AA:
+	elif i not in AA:
 		W[i] = 0
 		return 0
 	if i+1 not in W.keys():
