@@ -24,7 +24,11 @@ for i in range(len(AA)-1):
 print("Part 1: {}".format(d1*d3))
 
 
-# memoization
+# reddit helped here, to point me in the right direction.
+# to develop my own recursive approach
+# https://www.reddit.com/r/adventofcode/comments/ka8z8x/2020_day_10_solutions/gf9ot1i/
+
+# for memoization
 W = {}
 
 def ways(i,AA,W):
@@ -50,6 +54,7 @@ print("Part 2: {}".format(ways(0,AA,W)))
 
 
 # saw this one on reddit
+# https://github.com/tymscar/Advent-Of-Code/blob/master/2020/day10/part2.py
 
 from collections import defaultdict
 file = open('day10_input.txt', 'r')
