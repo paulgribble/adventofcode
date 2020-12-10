@@ -48,6 +48,7 @@ def ways(i,AA,W):
 
 print("Part 2: {}".format(ways(0,AA,W)))
 
+
 # saw this one on reddit
 
 from collections import defaultdict
