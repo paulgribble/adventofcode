@@ -1,4 +1,4 @@
-with open("day10_input.txt") as f:
+with open("day10_input_test.txt") as f:
 	A = [int(r.strip('\n')) for r in f]
 
 A.sort()
@@ -43,6 +43,7 @@ def ways(i,AA,W):
 	if i+3 not in W.keys():
 		W[i+3] = ways(i+3,AA,W)
 	W[i] = W[i+1] + W[i+2] + W[i+3]
+#	print("{},{},{}\n{},{},{}\n".format(i+1,i+2,i+3,W[i+1],W[i+2],W[i+3]))
 	return W[i]
 
 print("Part 2: {}".format(ways(0,AA,W)))
