@@ -43,3 +43,26 @@ while i < len(inp):
 print("Part 1: {}".format(p1))
 
 
+FP = []
+for p in range(nrules):
+	FP.append(set())
+	for r in rules.keys():
+		if nearby[p].issubset(rules[r]):
+			FP[p].add(r)
+
+n = len(FP)
+while sum(map(len,FP)) > len(FP):
+	for i in range(n):
+		if len(FP[i])==1:
+			for j in range(n):
+				tmp = list(FP[i])[0]
+				if i!=j and tmp in FP[j]:
+					FP[j].remove(tmp)
+
+x = 1
+for i in range(n):
+	if list(FP[i])[0][0:9]=='departure':
+		x = x * ticket[i]
+
+print("Part 2: {}".format(x))
+
