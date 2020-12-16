@@ -25,7 +25,7 @@ ticket = list(map(int,inp[i].split(',')))
 i += 3
 
 nrules = len(rules.keys())
-nearby = [] # stores positions of fields
+nearby = [] # pos1 values, pos2 values, etc
 for _ in range(nrules):
 	nearby.append(set())
 
