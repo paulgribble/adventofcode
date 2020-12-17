@@ -35,7 +35,7 @@ for i in range(nc):
 	for ix in range(xx[0]-1,xx[1]+2):
 		for iy in range(yy[0]-1,yy[1]+2):
 			for iz in range(zz[0]-1,zz[1]+2):
-				if not ((G[(ix,iy,iz)]==True) and (numnear(ix,iy,iz) in (2,3))):
+				if not (G[(ix,iy,iz)]==True and numnear(ix,iy,iz) in (2,3)):
 					G2[(ix,iy,iz)] = False
 				if (G[(ix,iy,iz)]==False) and (numnear(ix,iy,iz)==3):
 					G2[(ix,iy,iz)] = True
