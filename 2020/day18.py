@@ -20,10 +20,10 @@ def mathme(val1,op,val2):
 def parse(e):
 	print('e: {}'.format(e))
 	if e=='':
-		print("returning 0")
+		print("{}: returning 0".format(e))
 		return 0
 	elif e.find(' ')==-1:
-		print("returning {}".format(int(e)))
+		print("{}: returning {}".format(e,int(e)))
 		return int(e)
 	elif e[0] in '0123456789':
 		i = e.find(' ')
@@ -31,7 +31,7 @@ def parse(e):
 		op = e[i+1]
 		val2 = parse(e[i+3:])
 		r = mathme(val1,op,val2)
-		print("returning {}".format(r))
+		print("{}: returning {}".format(e,r))
 		return r
 	elif e[0]=='(':
 		depth = 1
@@ -42,15 +42,17 @@ def parse(e):
 			elif e[i]==')':
 				depth -= 1
 			i += 1
-		val1 = parse(e[1:i-1])
+		if i!=len(e):
+			i -= 1
+		val1 = parse(e[1:i])
 		if i < len(e):
-			op = e[i+1]
-			val2 = e[i+3:]
+			op = e[i+2]
+			val2 = parse(e[i+4:])
 			r = mathme(val1,op,val2)
-			print("returning {}".format(r))
+			print("{}: returning {}".format(e,r))
 			return r
 		else:
-			print("returning {}".formate(val1))
+			print("{}: returning {}".formate(e,val1))
 			return val1
 
 
