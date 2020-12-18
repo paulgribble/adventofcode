@@ -5,12 +5,8 @@ def mathme(val1,op,val2):
 	val1,val2 = int(val1), int(val2)
 	if op=='+':
 		return val1 + val2
-	elif op=='-':
-		return val1 - val2
 	elif op=='*':
 		return val1 * val2
-	elif op=='/':
-		return val1 / val2
 
 def parse(e):
 	if e.find(' ')==-1: # must be a single integer
