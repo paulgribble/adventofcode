@@ -38,12 +38,22 @@ def parse(e):
 
 p1 = 0
 for e in inp:
-	er = e.replace('(','$').replace(')','(').replace('$',')')[::-1]
+	er = e.replace('(','$').replace(')','(').replace('$',')')[::-1] # reverse it
 	p1 += parse(er)
 
 print("Part 1: {}".format(p1))
 
 
+def rebracket(e):
+	
+	return e
 
+p2 = 0
+for e in inp:
+	eb = rebracket(e)
+	er = eb.replace('(','$').replace(')','(').replace('$',')')[::-1]
+	p2 += parse(er)
+
+print("Part 2: {}".format(p2))
 
 
