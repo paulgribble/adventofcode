@@ -4,3 +4,14 @@
 3: 4 5 | 5 4
 4: "a"
 5: "b"
+
+aaaabb
+aaabab
+abbabb
+abbbab
+aabaab
+aabbbb
+abaaab
+ababbb
+ababab
+bababa
