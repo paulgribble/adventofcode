@@ -37,7 +37,7 @@ print(f"Part 1: {len(S)}")
 def update_stone(stone):
     if stone == 0:
         return [1]
-    if len(str(stone)) % 2 == 0:
+    elif len(str(stone)) % 2 == 0:
         stone = str(stone)
         return [int(stone[:len(stone)//2]), int(stone[len(stone)//2:])]
     else:
@@ -48,7 +48,7 @@ def update(arrangement):
     for stone in arrangement.keys():
         new_stones = update_stone(stone)
         for new_stone in new_stones:
-            if new_arrangement.get(new_stone) is None:
+            if new_stone not in new_arrangement.keys():
                 new_arrangement[new_stone] = 0
             new_arrangement[new_stone] += arrangement[stone]
     return new_arrangement
