@@ -12,5 +12,5 @@ for idi in IDs:
 		if ((l%2)==0):
 			if (ii[:(l//2)] == ii[(l//2):]):
 				thesum += i
-
+print(f"day1: {thesum}")
 
