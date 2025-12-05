@@ -24,3 +24,13 @@ for i in ids:
 
 print(f"part 1: {num_fresh}")
 
+
+
+
+fresh = 0
+
+
+print(f"part 2: {fresh}")
+
+
+
