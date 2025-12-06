@@ -22,7 +22,7 @@ for line in datafileT:
 print(f"part 1: {total}")
 
 
-with open("input2") as f:
+with open("input") as f:
 	datafile = [list(line.rstrip('\n')) for line in f]
 
 datafileT = [list(row) for row in zip(*datafile)]
@@ -37,6 +37,16 @@ total = 0
 for i in range(n_ops):
 	i1 = op_ind[i]
 	i2 = cols if i==n_ops-1 else op_ind[i+1]-1
-	print(datafileT[i1:i2])
+	dset = datafileT[i1:i2]
+#	print(dset)
+	op = dset[0][-1]
+	tot = int("".join(dset[0][0:-1]))
+	for e in dset[1:]:
+		x = int("".join(e).strip())
+		if (op=='*'):
+			tot = tot * x
+		elif (op=='+'):
+			tot = tot + x
+	total += tot
 
-
+print(f"part 2: {total}")
