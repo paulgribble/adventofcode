@@ -28,7 +28,7 @@ print(f"part 1: {num_fresh}")
 
 # part 2 with help from reddit
 
-datafile = open('input', "r", encoding="UTF-8").read().strip().splitlines()
+datafile = open('input', "r").read().strip().splitlines()
 empty_line = datafile.index("")
 s_ranges = datafile[:empty_line]
 
