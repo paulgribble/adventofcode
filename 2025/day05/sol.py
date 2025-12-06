@@ -2,7 +2,7 @@ from os import chdir
 chdir(__file__.rpartition("\\")[0])
 
 file_name = "sample.txt"
-file_name = 'input.txt'
+file_name = 'input2'
 
 datafile = open(file_name, "r", encoding="UTF-8").read().strip().splitlines()
 
