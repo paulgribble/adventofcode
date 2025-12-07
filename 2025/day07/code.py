@@ -26,14 +26,19 @@ beam = beam0
 timelines = [[beam0]]
 
 for i in range(1,l):
-	indices = [ix for ix, x in enumerate(TM[i]) if x == '^']
-	for j in indices:
-		for t in timelines:
-			if (t[-1]==j):
+	ltm = len(TM[i])
+	splits = [False for _ in range(ltm)]
+	for ii in range(ltm):
+		splits[ii] = TM[i][ii] == '^'
+	for t in timelines:
+		for j in range(ltm):
+			if (splits[j] and (t[-1]==j)):
 				tt = t.copy()
 				t.append(j-1)
 				tt.append(j+1)
 				timelines.append(tt)
+	u = {tuple(sublist) for sublist in timelines}
+	timelines = [list(tup) for tup in u]
 
 num_timelines = len(timelines)
 print(f"part 2: {num_timelines}")
