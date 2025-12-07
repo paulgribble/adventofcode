@@ -1,5 +1,5 @@
 
-with open("input2") as f:
+with open("input") as f:
 	TM = [line.strip() for line in f]
 
 l = len(TM)-1
@@ -25,22 +25,27 @@ beam0 = TM[0].index('S')
 beam = beam0
 timelines = [[beam0]]
 
-for i in range(1,l):
-	ltm = len(TM[i])
-	splits = [False for _ in range(ltm)]
-	for ii in range(ltm):
-		splits[ii] = TM[i][ii] == '^'
-	for t in timelines:
-		for j in range(ltm):
-			if (splits[j] and (t[-1]==j)):
-				tt = t.copy()
-				t.append(j-1)
-				tt.append(j+1)
-				timelines.append(tt)
-	u = {tuple(sublist) for sublist in timelines}
-	timelines = [list(tup) for tup in u]
 
-num_timelines = len(timelines)
-print(f"part 2: {num_timelines}")
+# with help from reddit
+
+from collections import defaultdict
+
+manifold = open("input").read().strip().splitlines()
+beams = defaultdict(int)
+beams[manifold[0].index('S')] = 1
+p1 = 0
+for row in manifold[1:]:
+    new_beams = defaultdict(int)
+    for x, c in beams.items():
+        if row[x] == '^':
+            new_beams[x - 1] += c
+            new_beams[x + 1] += c
+            p1 += 1
+        else:
+            new_beams[x] += c
+    beams = new_beams
+
+print(f"Part 1: {p1}")
+print(f"Part 2: {sum(beams.values())}")
 
 
